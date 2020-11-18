@@ -16,6 +16,7 @@ struct dataModel {
     var error: String?
     var image: UIImage?
     var description: String
+    var country: String?
     init() {        
         self.wind = "--"
         self.temp = "--"
@@ -53,6 +54,7 @@ class ViewModel: ObservableObject {
                 self?.weather.wind = String(weatherData.wind.speed)
                 self?.weather.humidity = String(weatherData.main.humidity)
                 self?.weather.name = String(weatherData.name)
+                self?.weather.country = String(weatherData.sys.country)
                 if weatherData.weather.count > 0 {
                     self?.getIcon(forName: weatherData.weather[0].icon)
                     self?.weather.description = weatherData.weather[0].description
